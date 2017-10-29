@@ -1,6 +1,6 @@
 {
   "name": "genie-router-plugin-facebook-messenger",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A genie-router plugin that enables the use of Facebook Messenger as a client. ",
   "main": "index.js",
   "scripts": {
