@@ -7,8 +7,7 @@ A genie-router plugin that enables the use of Facebook Messenger as a client.
 Facebook requires that your genie-router instance listens on a https URL. There are plenty
 of methods to achieve this, but here are two options:
 
-1. Use a proxy tool like [_ngrok_](https://ngrok.io) or [_localtunnel_](https://www.npmjs.com/package/localtunnel) to
-get a public endpoint that supports https
+1. Use a proxy tool like [_ngrok_](https://ngrok.io) or [_localtunnel_](https://www.npmjs.com/package/localtunnel) to get a public endpoint that supports https
 2. Setup an [_apache_](http://www.apachetutor.org/admin/reverseproxies) or
 [nginx](https://www.keycdn.com/support/nginx-reverse-proxy/) webserver that will act as a
 [_reverse proxy_](https://en.wikipedia.org/wiki/Reverse_proxy). You can use [_letsencrypt_](https://letsencrypt.org/)
@@ -24,9 +23,17 @@ the SSL/HTTPS is handled by the webserver.
 Then, follow the [Getting Started](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup)
 guide to create your App and Page. Remember what you configure as the verifyToken.
 
-Check `messages` as the webhook subscription.
+Check `messages` as the webhook subscription. Configure the webhook URL as `https://<yourdomain.com>/facebook/messenger`. The verify token should be what you are
+going to configure in the genie-router config.
+
+The configuration should already be in place and genie-router restart for the verify token
+to be configured and Facebook to accept the webhook URL.
 
 ## genie-router
+
+At the plugin location ($HOME/.genie-router), type:
+
+    npm install --save @genie-ai/genie-router-plugin-facebook-messenger
 
 This plugin needs to be configured in the `plugins` section of _genie-router_. There are
 three properties that can be configured.
@@ -35,6 +42,13 @@ three properties that can be configured.
 - verifyToken, the verifyToken you configured for the webhook
 - password, an optional configuration parameter, that requires users to identify themselves
 with a password before they can send text to genie-router.
+
+The password configuration attribute is optional, and can be used to require a password
+before someone can send commands via Telegram. A hash of the password is stored in the
+persistent storage, so that the user can be automatically granted access in a next session.
+A user has to type the password anew when the password changes in the configuration.
+
+To not require a password, simply remove the attribute or set it to null.
 
 ## Example config
 

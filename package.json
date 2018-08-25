@@ -1,14 +1,17 @@
 {
-  "name": "genie-router-plugin-facebook-messenger",
-  "version": "1.1.0",
+  "name": "@genie-ai/genie-router-plugin-facebook-messenger",
+  "version": "2.0.0",
   "description": "A genie-router plugin that enables the use of Facebook Messenger as a client. ",
   "main": "index.js",
   "scripts": {
-    "test": "standard"
+    "test": "eslint ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matueranet/genie-router-plugin-facebook-messenger.git"
+    "url": "git+https://github.com/genie-ai/genie-router-plugin-facebook-messenger.git"
+  },
+  "engines": {
+    "node": ">=8.10"
   },
   "keywords": [
     "genie-router",
@@ -21,11 +24,13 @@
   "author": "matueranet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matueranet/genie-router-plugin-facebook-messenger/issues"
+    "url": "https://github.com/genie-ai/genie-router-plugin-facebook-messenger/issues"
   },
-  "homepage": "https://github.com/matueranet/genie-router-plugin-facebook-messenger#readme",
+  "homepage": "https://github.com/genie-ai/genie-router-plugin-facebook-messenger#readme",
   "devDependencies": {
-    "standard": "^10.0.3"
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.9.0"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -34,6 +39,7 @@
     "request-promise-native": "^1.0.5"
   },
   "genieRouterPlugin": {
-    "name": "facebook-messenger"
+    "name": "facebook-messenger",
+    "apiVersion": "1.0.0"
   }
 }
